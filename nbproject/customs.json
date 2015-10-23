@@ -1,0 +1,7 @@
+{
+    "elements": {
+        "sql:setDataSource": {},
+        "sql:query": {}
+    },
+    "attributes": {}
+}
