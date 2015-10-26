@@ -46,7 +46,7 @@
               String param = request.getParameter("search");
                 if(param == null){
                     System.out.print("here");
-                    param ="";
+                    param = "";
                 }
             %>
         <div id="resultado">
