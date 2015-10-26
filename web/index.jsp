@@ -42,14 +42,21 @@
                 <div class="logo">LOGO</div>
             </div>
         </div>
+        <%
+              String param = request.getParameter("search");
+                if(param == null){
+                    System.out.print("here");
+                    param ="";
+                }
+            %>
         <div id="resultado">
             <form id="formResult" action="">
-                <input type="text" name="search" id="search" value=""/> 
+                <input type="text" name="search" id="search" value=<%=param %> /> 
                 <a onclick="document.getElementById('formResult').submit();"><i class="fa fa-search fa-lg"></i></a>
             </form>
             <%
                 int pageNumber = 1;
-                String param = request.getParameter("search");
+              
                 if (request.getParameter("page") != null) {
                     session.setAttribute("page", request.getParameter("page"));
                     pageNumber = Integer.parseInt(request.getParameter("page"));
