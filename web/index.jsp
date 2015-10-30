@@ -47,8 +47,9 @@
                 if(param == null){
                     System.out.print("here");
                     param = "";
+                    param = param.replaceAll("/", "");
                 }
-            %>
+        %>
         <div id="resultado">
             <form id="formResult" action="">
                 <input type="text" name="search" id="search" value=<%=param %> /> 
