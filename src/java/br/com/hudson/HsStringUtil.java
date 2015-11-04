@@ -47,21 +47,35 @@ public class HsStringUtil {
     }
 
     public static String simpleBold(String original, String param) {
+        String aux[] = param.split(" ");
+        String paramLow[] = new String[aux.length];
+        String paramHigh[] = new String[aux.length];
+        String paramUpperFrist[] = new String[aux.length];
 
-        String paramLow = param.toLowerCase();
-        String paramHigh = param.toUpperCase();
-        String paramUpperFrist = paramLow.substring(0, 1).toUpperCase() + paramLow.substring(1, param.length());
-        
-        System.out.println(paramLow);
-        System.out.println(paramHigh);
-        System.out.println(paramUpperFrist);
+        for (int k = 0; k < aux.length; k++) {
+            paramLow[k] = aux[k].toLowerCase();
+        }
 
-        original = original.replace(paramLow, "<b>" + paramLow + "</b>");
-        System.out.println(original);
-        original = original.replace(paramHigh, "<b>" + paramHigh + "</b>");
-                System.out.println(original);
-        original = original.replace(paramUpperFrist, "<b>" + paramUpperFrist + "</b>");
-                System.out.println(original);
+        for (int k = 0; k < aux.length; k++) {
+            paramHigh[k] = aux[k].toUpperCase();
+        }
+
+        for (int k = 0; k < aux.length; k++) {
+            paramUpperFrist[k] = paramLow[k].substring(0, 1).toUpperCase() + paramLow[k].substring(1, paramLow[k].length());
+        }
+
+        for (int k = 0; k < aux.length; k++) {
+            original = original.replace(paramLow[k], "<b>" + paramLow[k] + "</b>");
+        }
+
+        for (int k = 0; k < aux.length; k++) {
+            original = original.replace(paramHigh[k], "<b>" + paramHigh[k] + "</b>");
+        }
+
+        for (int k = 0; k < aux.length; k++) {
+            original = original.replace(paramUpperFrist[k], "<b>" + paramUpperFrist[k] + "</b>");
+        }
+
         return original;
     }
 }
