@@ -45,4 +45,23 @@ public class HsStringUtil {
         int start = end - 9;
         return "" + start + "-" + end;
     }
+
+    public static String simpleBold(String original, String param) {
+
+        String paramLow = param.toLowerCase();
+        String paramHigh = param.toUpperCase();
+        String paramUpperFrist = paramLow.substring(0, 1).toUpperCase() + paramLow.substring(1, param.length());
+        
+        System.out.println(paramLow);
+        System.out.println(paramHigh);
+        System.out.println(paramUpperFrist);
+
+        original = original.replace(paramLow, "<b>" + paramLow + "</b>");
+        System.out.println(original);
+        original = original.replace(paramHigh, "<b>" + paramHigh + "</b>");
+                System.out.println(original);
+        original = original.replace(paramUpperFrist, "<b>" + paramUpperFrist + "</b>");
+                System.out.println(original);
+        return original;
+    }
 }

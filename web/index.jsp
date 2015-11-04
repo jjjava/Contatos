@@ -43,21 +43,21 @@
             </div>
         </div>
         <%
-              String param = request.getParameter("search");
-                if(param == null){
-                    System.out.print("here");
-                    param = "";
-                    param = param.replaceAll("/", "");
-                }
+            String param = request.getParameter("search");
+            if (param == null) {
+                System.out.print("here");
+                param = "";
+                param = param.replaceAll("/", "");
+            }
         %>
         <div id="resultado">
             <form id="formResult" action="">
-                <input type="text" name="search" id="search" value=<%=param %> /> 
+                <input type="text" name="search" id="search" value=<%=param%> /> 
                 <a onclick="document.getElementById('formResult').submit();"><i class="fa fa-search fa-lg"></i></a>
             </form>
             <%
                 int pageNumber = 1;
-              
+
                 if (request.getParameter("page") != null) {
                     session.setAttribute("page", request.getParameter("page"));
                     pageNumber = Integer.parseInt(request.getParameter("page"));
@@ -88,8 +88,8 @@
                             int total = ((Integer) session.getAttribute("size"));
                             int numberOfPages = total / 10;
                             int rest = total % 10;
-                             rest = rest /10;
-                            if(rest ==0){
+                            rest = rest / 10;
+                            if (rest == 0) {
                                 rest++;
                             }
                             numberOfPages = numberOfPages + rest;
@@ -124,6 +124,23 @@
                     out.print("</div>");
                 }
             %>
+        </div>
+        <div id="paginacao">
+            <div class="content">
+                <div class="right">
+                    <ul class="numeros">
+                        <%
+                            for (int k = 1; k <= numberOfPages; k++) {
+                                if (pageNumber != k) {
+                                    out.print("<li><a href=\"index.jsp?search=" + param + "&page=" + k + "\">" + k + "</a></li>");
+                                } else {
+                                    out.print("<li><a class=\"select\" href=\"index.jsp?search=" + param + "&page=" + k + "\">" + k + "</a></li>");
+                                }
+                            }
+                        %>
+                    </ul>
+                </div>
+            </div>
         </div>
     </body>
 </html>

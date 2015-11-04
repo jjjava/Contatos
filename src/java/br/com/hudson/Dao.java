@@ -29,7 +29,7 @@ public class Dao {
             while (rs.next()) {
                 Contato c = new Contato();
                 c.setId("" + rs.getInt("id"));
-                c.setNome(HsStringUtil.setBoldMatchChar(rs.getString("nome"), param));
+                c.setNome(HsStringUtil.simpleBold(rs.getString("nome"), param));
                 c.setEmail(rs.getString("email"));
                 c.setTel(rs.getString("tel"));
 
@@ -58,7 +58,7 @@ public class Dao {
             while (rs.next()) {
                 Contato c = new Contato();
                 c.setId("" + rs.getInt("id"));
-                c.setNome(HsStringUtil.setBoldMatchChar(rs.getString("nome"), param));
+                c.setNome(HsStringUtil.simpleBold(rs.getString("nome"), param));
                 c.setEmail(rs.getString("email"));
                 c.setTel(rs.getString("tel"));
 
